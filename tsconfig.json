@@ -23,6 +23,7 @@
     "paths": {
       "@mock/*": ["mock/*"],
       "@tools/*": ["src/tools/*"],
+      "@context/*": ["src/context/*"],
       "@common/*": ["src/common/*"],
       "@components/*": ["src/components/*"],
       "@hooks/*": ["src/hooks/*"],

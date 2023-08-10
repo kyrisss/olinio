@@ -63,6 +63,7 @@ module.exports = (env) => {
       alias: {
         "@mock": path.resolve(__dirname, "mock/"),
         "@tools": path.resolve(__dirname, "src/tools/"),
+        "@context": path.resolve(__dirname, "src/context/"),
         "@common": path.resolve(__dirname, "src/common/"),
         "@components": path.resolve(__dirname, "src/components/"),
         "@hooks": path.resolve(__dirname, "src/hooks/"),

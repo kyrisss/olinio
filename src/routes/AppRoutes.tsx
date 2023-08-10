@@ -5,6 +5,7 @@ import { MainLayout } from "@components/Layout/MainLayout";
 import { Loader } from "@components/Loader";
 import { LoginPage } from "@views/LoginPage";
 import { MainPage } from "@views/MainPage";
+import { RegistrationPage } from "@views/RegistrationPage";
 
 import { ROUTES } from "./config";
 import { ProtectedAuthRoutes } from "./ProtectedAuthRoutes";
@@ -16,7 +17,7 @@ export const AppRoutes = () => (
         <Route element={<MainLayout />}>
           <Route path={ROUTES.LOGIN} element={<LoginPage />} />
           {/* <Route path={ROUTES.ERROR_404} element={<Page404 />} /> */}
-          {/* <Route path={ROUTES.REGISTRATION} element={<RegistrationPage />} /> */}
+          <Route path={ROUTES.REGISTRATION} element={<RegistrationPage />} />
           <Route element={<ProtectedAuthRoutes />}>
             <Route index element={<MainPage />} />
           </Route>

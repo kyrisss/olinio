@@ -7,6 +7,9 @@
 @import "./components/button";
 @import "./components/spinner";
 @import "./components/themeSwitcher";
+@import "./components/group";
+@import "./components/input";
+@import "./components/card";
 
 @import url("https://rsms.me/inter/inter.css");
 
@@ -45,4 +48,11 @@ input:focus {
   .outlet {
     flex: 1 0;
   }
+}
+
+.wrapper {
+  max-width: 1000px;
+  width: 100%;
+  padding: 0 10px;
+  margin: 0 auto;
 }

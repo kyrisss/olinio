@@ -11,7 +11,7 @@ export const MainLayout = () => {
   return (
     <div className={cn("mainLayout", theme)}>
       <Header />
-      <div className="outlet">
+      <div className={cn("outlet", "wrapper")}>
         <Outlet />
       </div>
       {/* <Footer /> */}
