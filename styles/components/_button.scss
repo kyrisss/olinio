@@ -1,0 +1,78 @@
+.btn {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+
+  font-family: "Inter", sans-serif;
+  overflow-wrap: break-word;
+
+  border-radius: 5px;
+
+  &:hover {
+    background-color: $dimGray;
+  }
+
+  &-large {
+    height: 62px;
+  }
+
+  &-medium {
+    height: 56px;
+  }
+
+  &-small {
+    height: 34px;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  &_passed {
+    color: $darkBlue;
+  }
+}
+
+.primary {
+  color: $white;
+  font-weight: 600;
+  border: none;
+  background-color: $darkBlue;
+}
+
+.secondary {
+  font-weight: 600;
+  border: 1px solid $cadetBlue;
+  background-color: $white;
+}
+
+.tetriary {
+  color: $darkBlue;
+  font-weight: 600;
+  border: 1px solid $darkBlue;
+  background-color: $white;
+
+  &:hover {
+    color: $white;
+  }
+}
+
+.btnCancel {
+  color: $red;
+  border: 1px solid $red;
+
+  &:hover {
+    color: $white;
+    border: $cadetBlue;
+  }
+}
+
+.disabled {
+  color: $metallicSilver;
+  border: none;
+  background-color: $brightGray;
+  pointer-events: none;
+}

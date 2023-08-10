@@ -1,0 +1,44 @@
+@import url("https://rsms.me/inter/inter.css");
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: auto;
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+
+  font-weight: 400;
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+
+  background-color: $background;
+  color: $text;
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+select,
+textarea,
+input:focus {
+  outline: none;
+}
+
+.mainLayout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+
+  .outlet {
+    flex: 1 0;
+  }
+}

@@ -4,21 +4,11 @@
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "plugin:import/recommended",
     "plugin:import/typescript",
     "plugin:react-hooks/recommended",
     "plugin:typescript-sort-keys/recommended"
   ],
-  "plugins": [
-    "react",
-    "@typescript-eslint",
-    "simple-import-sort",
-    "sort-destructure-keys",
-    "sort-destructure-keys",
-    "typescript-sort-keys"
-  ],
+  "plugins": ["react", "@typescript-eslint", "simple-import-sort", "sort-destructure-keys", "sort-destructure-keys", "typescript-sort-keys"],
   "env": {
     "jest": true
   },
@@ -27,52 +17,23 @@
       "error",
       {
         "groups": [
-          // Packages `react` related packages come first.
           ["^react", "^@?\\w"],
-          // Internal packages.
           ["^(@)(/.*|$)"],
-          // Side effect imports.
           ["^\\u0000"],
-          // App parts
-          [
-            "^@mock/*",
-            "^@tools/*",
-            "^@common/*",
-            "^@components/*",
-            "^@hooks/*",
-            "^@redux/*",
-            "^@routes/*",
-            "^@views/*",
-            "^@store/*",
-            "^@constants/*",
-            "^@models/*",
-            "^@styles/*"
-          ],
-          // Parent imports. Put `..` last.
+          ["^@mock/*", "^@tools/*", "^@common/*", "^@components/*", "^@hooks/*", "^@redux/*", "^@routes/*", "^@views/*", "^@store/*", "^@constants/*", "^@models/*", "^@styles/*"],
           ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
-          // Other relative imports. Put same-folder imports and `.` last.
           ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
-          // Style imports.
           ["^.+\\.?(scss)$"]
         ]
       }
     ],
     "@typescript-eslint/no-var-requires": 0,
-    "import/first": "error",
-    "import/newline-after-import": "error",
-    "import/no-duplicates": "error",
     "@typescript-eslint/ban-ts-ignore": "off",
     "@typescript-eslint/no-namespace": 0,
     "@typescript-eslint/explicit-function-return-type": 0,
     "@typescript-eslint/no-use-before-define": 0,
     "arrow-body-style": [2, "as-needed"],
     "no-use-before-define": 0,
-    "import/extensions": 0,
-    "import/no-unresolved": 0,
-    "import/prefer-default-export": 0,
-    "import/no-default-export": 2,
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
-    "import/namespace": "off",
     "simple-import-sort/exports": "error",
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": ["error"],
@@ -99,13 +60,13 @@
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        "extensions": [".ts", ".tsx", ".js", ".jsx"]
       }
     ],
     "react-hooks/exhaustive-deps": "error",
     "typescript-sort-keys/interface": "error",
     "typescript-sort-keys/string-enum": "error",
-    "comma-dangle": [2, "always-multiline"],
+    "comma-dangle": [2, "always-multiline"]
   },
   "settings": {
     "import/resolver": {

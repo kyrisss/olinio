@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const { merge } = require("webpack-merge");
 const config = require("./webpack.config.js");
 // const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;

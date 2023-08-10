@@ -10,9 +10,8 @@
     "build-prod": "webpack --env goal=production --config ./webpack.prod.js",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "prettier": "prettier --check './**/*.{tsx,ts}'",
-    "prettier:fix": "prettier --write './**/*.{tsx,ts}'",
-    "lint-staged": "lint-staged -c .lintstagedrc.js",
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write .",
     "prepare": "husky install"
   },
   "devDependencies": {
@@ -53,7 +52,9 @@
     "webpack-merge": "~5.8.0"
   },
   "dependencies": {
+    "classnames": "~2.3.2",
     "react": "~18.2.0",
+    "react-icons": "~4.10.1",
     "react-redux": "~8.1.2",
     "react-router-dom": "~6.14.2"
   },
