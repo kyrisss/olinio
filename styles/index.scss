@@ -1,11 +1,14 @@
+@import "./reset";
+
 @import "./variables/colors";
 @import "./variables/themes";
 
-@import url("https://rsms.me/inter/inter.css");
+@import "./components/header";
+@import "./components/button";
+@import "./components/spinner";
+@import "./components/themeSwitcher";
 
-* {
-  box-sizing: border-box;
-}
+@import url("https://rsms.me/inter/inter.css");
 
 html,
 body {
@@ -16,14 +19,9 @@ body {
 html,
 body,
 #root {
-  margin: 0;
-
   font-weight: 400;
   font-size: 16px;
   font-family: "Inter", sans-serif;
-
-  background-color: $bg-primary;
-  color: $primary-color;
 
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -40,6 +38,9 @@ input:focus {
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
+
+  background-color: var(--bg-primary);
+  color: var(--primary-color);
 
   .outlet {
     flex: 1 0;
