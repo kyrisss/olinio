@@ -2,11 +2,11 @@ FROM node:lts
 
 WORKDIR /web
 
-COPY package.json ./web
+COPY package.json /web/
 
 RUN npm install
 
-COPY . .
+COPY . /web/
 
 EXPOSE 8080
 
