@@ -6,7 +6,9 @@
 schema.graphql
 
 # Dependency directories
+/api/node_modules/
 node_modules/
+node*
 .firebase
 
 # Build files

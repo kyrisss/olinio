@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  mongodb:
+    image: "mongo:4.4.6"
+    volumes:
+      - mongo-data:/data/db
+  frontend:
+    image: "frontend"
+    build: ./web
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./web/src:/app/src
+  backend:
+    image: "backend"
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./api:/app
+      - /app/node_modules
+    depends_on:
+      - mongodb
+volumes:
+  mongo-data:
