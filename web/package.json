@@ -1,5 +1,5 @@
 {
-  "name": "registers",
+  "name": "olinio-test",
   "version": "1.0.0",
   "author": "kornev.roma62@gmail.com <kornev.roma62@gmail.com>",
   "license": "ISC",
@@ -17,7 +17,7 @@
   "devDependencies": {
     "@babel/core": "~7.18.6",
     "@babel/polyfill": "~7.12.1",
-    "@types/react-dom": "^18.2.7",
+    "@types/react-dom": "~18.2.7",
     "@typescript-eslint/eslint-plugin": "~5.62.0",
     "clean-webpack-plugin": "~4.0.0",
     "compression-webpack-plugin": "~10.0.0",
@@ -52,15 +52,15 @@
     "webpack-merge": "~5.8.0"
   },
   "dependencies": {
-    "@reduxjs/toolkit": "^1.9.5",
+    "@reduxjs/toolkit": "~1.9.5",
     "classnames": "~2.3.2",
-    "crypto-browserify": "^3.12.0",
+    "crypto-browserify": "~3.12.0",
     "react": "~18.2.0",
     "react-icons": "~4.10.1",
     "react-redux": "~8.1.2",
     "react-router-dom": "~6.14.2",
-    "sass": "^1.65.1",
-    "stream-browserify": "^3.0.0"
+    "sass": "~1.65.1",
+    "stream-browserify": "~3.0.0"
   },
   "husky": {
     "hooks": {

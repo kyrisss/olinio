@@ -1,8 +1,11 @@
-import express from 'express';
+import express from "express";
 
-import { deleteUserById, getUsers, getUserById } from '../db/users';
+import { deleteUserById, getUsers, getUserById } from "../db/users";
 
-export const getAllUsers = async (req: express.Request, res: express.Response) => {
+export const getAllUsers = async (
+  req: express.Request,
+  res: express.Response
+) => {
   try {
     const users = await getUsers();
 
@@ -13,7 +16,10 @@ export const getAllUsers = async (req: express.Request, res: express.Response) =
   }
 };
 
-export const deleteUser = async (req: express.Request, res: express.Response) => {
+export const deleteUser = async (
+  req: express.Request,
+  res: express.Response
+) => {
   try {
     const { id } = req.params;
 
@@ -24,20 +30,26 @@ export const deleteUser = async (req: express.Request, res: express.Response) =>
     console.log(error);
     return res.sendStatus(400);
   }
-}
+};
 
-export const updateUser = async (req: express.Request, res: express.Response) => {
+export const updateUser = async (
+  req: express.Request,
+  res: express.Response
+) => {
   try {
     const { id } = req.params;
-    const { username } = req.body;
+    const { email, firstName, lastName, phone } = req.body;
 
-    if (!username) {
+    if (!email || !firstName || !lastName || !phone) {
       return res.sendStatus(400);
     }
 
     const user = await getUserById(id);
-    
-    user.username = username;
+
+    user.email = email;
+    user.firstName = firstName;
+    user.lastName = lastName;
+    user.phone = phone;
     await user.save();
 
     return res.status(200).json(user).end();
@@ -45,4 +57,4 @@ export const updateUser = async (req: express.Request, res: express.Response) =>
     console.log(error);
     return res.sendStatus(400);
   }
-}
+};

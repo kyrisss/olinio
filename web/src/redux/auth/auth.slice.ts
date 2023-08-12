@@ -5,14 +5,16 @@ import { RootState } from "@store/rootReducer";
 
 export interface AuthState {
   email: string | null;
+  firstName: string | null;
   isLoggedIn: boolean;
-  name: string | null;
+  lastName: string | null;
   phone: string | null;
   username: string | null;
 }
 
 const initialState: AuthState = {
-  name: null,
+  firstName: null,
+  lastName: null,
   email: null,
   phone: null,
   isLoggedIn: false,
@@ -24,8 +26,9 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     loginSuccess: (state, { payload }: PayloadAction<User>) => {
-      const { email, name, phone, username } = payload;
-      state.name = name;
+      const { email, firstName, phone, username, lastName } = payload;
+      state.firstName = firstName;
+      state.lastName = lastName;
       state.phone = phone;
       state.isLoggedIn = true;
       state.email = email;
