@@ -1,0 +1,84 @@
+.react-select {
+  &__control {
+    border: none !important;
+    background-color: var(--bg-secondary) !important;
+    box-shadow: none !important;
+    padding: 10px 0;
+    font-size: 20px;
+
+    &--menu-is-open {
+      border: none !important;
+    }
+  }
+
+  &__control--is-disabled {
+    color: $darkGrayishBlue !important;
+
+    background-color: $white !important;
+
+    .react-select__value-container--is-multi {
+      display: block !important;
+
+      .react-select__input-container {
+        display: none !important;
+      }
+    }
+  }
+
+  &__single-value {
+    color: inherit !important;
+    white-space: pre-wrap !important;
+  }
+
+  &__menu {
+    width: 100%;
+    background-color: var(--secondary-color) !important;
+
+    &-list {
+      width: 100%;
+
+      &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+
+      &::-webkit-scrollbar-track {
+        border-radius: 12px;
+
+        background: rgba(42, 42, 59, 0.2);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 12px;
+
+        background: $darkBlue !important;
+      }
+    }
+  }
+
+  &__option {
+    width: 100%;
+
+    background-color: var(--bg-secondary) !important;
+
+    cursor: pointer !important;
+
+    &--is-focused {
+      background-color: var(--secondary-color) !important;
+      color: var(--bg-secondary) !important;
+    }
+
+    &--is-selected {
+      background-color: var(--secondary-color) !important;
+      color: var(--bg-secondary) !important;
+    }
+  }
+
+  &__value-container {
+    cursor: text !important;
+  }
+
+  &__indicators {
+    cursor: pointer !important;
+  }
+}

@@ -11,8 +11,9 @@ export interface User {
   username: string;
 }
 
-export type RegisterUserBody = Omit<User, "_id" | "phone">;
+export type RegisterUserBody = Omit<User, "_id">;
 export type UpdateUserBody = Omit<User, "_id" | "password" | "username">;
 export interface RegistrationForm extends Omit<User, "_id" | "country"> {
   country: Option;
 }
+export type LoginForm = Pick<User, "username" | "password">;

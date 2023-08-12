@@ -10,6 +10,9 @@
 @import "./components/group";
 @import "./components/input";
 @import "./components/card";
+@import "./components/reactSelect";
+
+@import "./views/users";
 
 @import url("https://rsms.me/inter/inter.css");
 
@@ -55,4 +58,8 @@ input:focus {
   width: 100%;
   padding: 0 10px;
   margin: 0 auto;
+}
+
+.section {
+  padding: 50px 0;
 }

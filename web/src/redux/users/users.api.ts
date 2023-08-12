@@ -5,10 +5,15 @@ import { apiSlice } from "@redux/baseQuery";
 export const usersApi = apiSlice.injectEndpoints({
   endpoints: (build) => ({
     getUsers: build.query<User[], void>({
-      query: (body) => ({
-        url: "/auth/login",
-        method: "POST",
-        body,
+      query: () => ({
+        url: "users",
+        method: "GET",
+      }),
+    }),
+    getUserById: build.query<User, string>({
+      query: (id) => ({
+        url: `users/${id}`,
+        method: "GET",
       }),
     }),
     deleteUser: build.mutation<User, string>({
@@ -25,3 +30,8 @@ export const usersApi = apiSlice.injectEndpoints({
     }),
   }),
 });
+
+export const { useGetUsersQuery } = usersApi;
+export const { useGetUserByIdQuery } = usersApi;
+export const { useDeleteUserMutation } = usersApi;
+export const { useUpdateUserMutation } = usersApi;
