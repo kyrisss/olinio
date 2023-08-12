@@ -7,7 +7,7 @@ export interface IconProps {
   disabled?: boolean;
   icon: IconTypes;
   id?: string;
-  onClick?: (event: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
+  onClick?: (event: React.MouseEvent<SVGElement, MouseEvent>) => void;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
   size?: number;
@@ -25,7 +25,7 @@ export const Icon: FC<IconProps> = ({ icon, className, size = IconSize.SMALL, ti
   const IconComponent = IconTypeMap[icon];
 
   if (IconComponent) {
-    return <IconComponent {...rest} id={id} className={className} size={size} title={title} onClick={!disabled ? onClick : null} />;
+    return <IconComponent {...rest} id={id} className={className} size={size} title={title} onClick={!disabled ? onClick : undefined} />;
   } else {
     return <span>NoIcon</span>;
   }

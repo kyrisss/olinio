@@ -44,6 +44,7 @@
         "ignorePattern": "^(import|export)\\s.+\\sfrom\\s.+;$",
         "ignoreUrls": true,
         "ignoreComments": true,
+        "ignoreRegExpLiterals": true,
         "ignoreStrings": true,
         "ignoreTemplateLiterals": true
       }

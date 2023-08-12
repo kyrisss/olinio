@@ -1,4 +1,4 @@
-import { ElementType } from "react";
+import { IconType } from "react-icons";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { FaRegUser, FaSpinner } from "react-icons/fa";
 import { TbPencil } from "react-icons/tb";
@@ -11,7 +11,7 @@ export enum IconTypes {
   USER = "user",
 }
 
-export const IconTypeMap: { [key in IconTypes]: ElementType } = {
+export const IconTypeMap: Record<IconTypes, IconType> = {
   [IconTypes.EYE]: AiOutlineEye,
   [IconTypes.INVISIBLE_EYE]: AiOutlineEyeInvisible,
   [IconTypes.USER]: FaRegUser,
