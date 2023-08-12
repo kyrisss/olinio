@@ -1,17 +1,21 @@
 import express from "express";
 
-import { getUserByEmail, createUser } from "../db/users";
+import {
+  createUser,
+  getUserBySessionToken,
+  getUserByUsername,
+} from "../db/users";
 import { authentication, random } from "../helpers";
 
 export const login = async (req: express.Request, res: express.Response) => {
   try {
-    const { email, password } = req.body;
+    const { username, password } = req.body;
 
-    if (!email || !password) {
+    if (!username || !password) {
       return res.sendStatus(400);
     }
 
-    const user = await getUserByEmail(email).select(
+    const user = await getUserByUsername(username).select(
       "+authentication.salt +authentication.password"
     );
 
@@ -45,15 +49,48 @@ export const login = async (req: express.Request, res: express.Response) => {
   }
 };
 
+export const logout = async (req: express.Request, res: express.Response) => {
+  try {
+    const token = req.cookies.accessToken;
+    const user = await getUserBySessionToken(token);
+
+    if (!user) {
+      return res.sendStatus(401);
+    }
+
+    res.clearCookie("accessToken");
+
+    return res.status(200).end();
+  } catch (error) {
+    console.log(error);
+    return res.sendStatus(400);
+  }
+};
+
 export const register = async (req: express.Request, res: express.Response) => {
   try {
-    const { email, password, username, firstName, lastName } = req.body;
+    const {
+      email,
+      password,
+      username,
+      firstName,
+      lastName,
+      phone = "",
+      country = "",
+    } = req.body;
 
-    if (!email || !password || !username || !firstName || !lastName) {
+    if (
+      !username ||
+      !password ||
+      !username ||
+      !firstName ||
+      !lastName ||
+      !email
+    ) {
       return res.sendStatus(400);
     }
 
-    const existingUser = await getUserByEmail(email);
+    const existingUser = await getUserByUsername(username);
 
     if (existingUser) {
       return res.sendStatus(400);
@@ -65,6 +102,8 @@ export const register = async (req: express.Request, res: express.Response) => {
       username,
       firstName,
       lastName,
+      ...(country && { country }),
+      ...(phone && { phone }),
       authentication: {
         salt,
         password: authentication(salt, password),

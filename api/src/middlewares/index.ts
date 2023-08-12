@@ -30,7 +30,7 @@ export const isAuthenticated = async (
   }
 };
 
-export const isOwner = async (
+export const isNotOwner = async (
   req: express.Request,
   res: express.Response,
   next: express.NextFunction
@@ -43,7 +43,7 @@ export const isOwner = async (
       return res.sendStatus(400);
     }
 
-    if (currentUserId.toString() !== id) {
+    if (currentUserId.toString() === id) {
       return res.sendStatus(403);
     }
 

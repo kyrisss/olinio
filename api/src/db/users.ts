@@ -6,7 +6,7 @@ const UserSchema = new mongoose.Schema({
   lastName: { type: String, required: true },
   username: { type: String, required: true },
   email: { type: String, required: true },
-  phoneNumber: { type: String },
+  phone: { type: String },
   country: { type: String },
   authentication: {
     password: { type: String, required: true, select: false },
@@ -19,7 +19,8 @@ export const UserModel = mongoose.model("User", UserSchema);
 
 // User Actions
 export const getUsers = () => UserModel.find();
-export const getUserByEmail = (email: string) => UserModel.findOne({ email });
+export const getUserByUsername = (username: string) =>
+  UserModel.findOne({ username });
 export const getUserBySessionToken = (sessionToken: string) =>
   UserModel.findOne({ "authentication.sessionToken": sessionToken });
 export const getUserById = (id: string) => UserModel.findById(id);

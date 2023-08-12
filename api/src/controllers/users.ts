@@ -16,6 +16,18 @@ export const getAllUsers = async (
   }
 };
 
+export const getUser = async (req: express.Request, res: express.Response) => {
+  try {
+    const { id } = req.params;
+    const user = await getUserById(id);
+
+    return res.status(200).json(user);
+  } catch (error) {
+    console.log(error);
+    return res.sendStatus(400);
+  }
+};
+
 export const deleteUser = async (
   req: express.Request,
   res: express.Response
@@ -28,7 +40,7 @@ export const deleteUser = async (
     return res.json(deletedUser);
   } catch (error) {
     console.log(error);
-    return res.sendStatus(400);
+    return res.sendStatus(400).send(error);
   }
 };
 
@@ -38,9 +50,9 @@ export const updateUser = async (
 ) => {
   try {
     const { id } = req.params;
-    const { email, firstName, lastName, phone } = req.body;
+    const { email, firstName, lastName, phone, country } = req.body;
 
-    if (!email || !firstName || !lastName || !phone) {
+    if (!email || !firstName || !lastName) {
       return res.sendStatus(400);
     }
 
@@ -49,7 +61,12 @@ export const updateUser = async (
     user.email = email;
     user.firstName = firstName;
     user.lastName = lastName;
-    user.phone = phone;
+    if (phone) {
+      user.phone = phone;
+    }
+    if (country) {
+      user.country = country;
+    }
     await user.save();
 
     return res.status(200).json(user).end();
