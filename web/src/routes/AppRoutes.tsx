@@ -6,8 +6,10 @@ import { Loader } from "@components/Loader";
 import { LoginPage } from "@views/LoginPage";
 import { RegistrationPage } from "@views/RegistrationPage";
 import { UserListPage } from "@views/UserListPage";
+import { UserPage } from "@views/UserPage";
 
 import { ROUTES } from "./config";
+import { ProtectedAuthRoutes } from "./ProtectedAuthRoutes";
 
 export const AppRoutes = () => (
   <BrowserRouter>
@@ -17,9 +19,10 @@ export const AppRoutes = () => (
           <Route index element={<Navigate to={ROUTES.USER_LIST} />} />
           <Route path={ROUTES.LOGIN} element={<LoginPage />} />
           <Route path={ROUTES.REGISTRATION} element={<RegistrationPage />} />
-          {/* <Route element={<ProtectedAuthRoutes />}> */}
-          <Route index path={ROUTES.USER_LIST} element={<UserListPage />} />
-          {/* </Route> */}
+          <Route element={<ProtectedAuthRoutes />}>
+            <Route path={ROUTES.USER_LIST} element={<UserListPage />} />
+            <Route path={ROUTES.USER} element={<UserPage />} />
+          </Route>
         </Route>
       </Routes>
     </Suspense>

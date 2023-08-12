@@ -7,6 +7,7 @@ import { store } from "@store/store";
 import { ThemeProvider } from "./context/theme/ThemeProvider";
 import { AppRoutes } from "./routes/AppRoutes";
 
+import "react-toastify/dist/ReactToastify.css";
 import "@styles/index.scss";
 
 const App = () => (

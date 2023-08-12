@@ -29,7 +29,7 @@
       "@hooks/*": ["src/hooks/*"],
       "@redux/*": ["src/redux/*"],
       "@routes/*": ["src/routes/*"],
-      "@models/*": ["src/models/*"],
+      "@models/*": ["models/*"],
       "@store/*": ["src/store/*"],
       "@views/*": ["src/views/*"],
       "@constants/*": ["src/constants/*"],

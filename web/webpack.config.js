@@ -72,7 +72,7 @@ module.exports = (env) => {
         "@store": path.resolve(__dirname, "src/store/"),
         "@views": path.resolve(__dirname, "src/views/"),
         "@constants": path.resolve(__dirname, "src/constants/"),
-        "@models": path.resolve(__dirname, "src/models/"),
+        "@models": path.resolve(__dirname, "models/"),
         "@styles": path.resolve(__dirname, "styles/"),
       },
       fallback: {

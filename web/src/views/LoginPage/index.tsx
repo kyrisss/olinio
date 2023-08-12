@@ -6,6 +6,7 @@ import { LoginForm } from "models/auth";
 
 import { Button, ButtonSizes, ButtonTypes, Variants } from "@components/Button";
 import { useAppDispatch } from "@hooks/redux";
+import { useToast } from "@hooks/useToast";
 import { useLoginMutation } from "@redux/auth/auth.api";
 import { loginSuccess } from "@redux/auth/auth.slice";
 import { ROUTES } from "@routes/config";
@@ -13,6 +14,7 @@ import { ROUTES } from "@routes/config";
 export const LoginPage = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const { createErrorToast, createSuccessToast } = useToast();
   const [loginUser] = useLoginMutation();
 
   const {
@@ -26,11 +28,11 @@ export const LoginPage = () => {
       const user = await loginUser(data).unwrap();
       if (user) {
         dispatch(loginSuccess(user));
-        //TODO: toast
+        createSuccessToast("Successful authorization");
         navigate(ROUTES.ROOT);
       }
     } catch (e) {
-      console.error(e);
+      createErrorToast();
     }
   };
   return (
@@ -48,7 +50,9 @@ export const LoginPage = () => {
           </label>
           <Button type={ButtonTypes.SUBMIT} variant={Variants.PRIMARY} size={ButtonSizes.MEDIUM} text="SIGN IN" />
         </form>
-        <Link to={ROUTES.REGISTRATION}>Register</Link>
+        <Link className="link" to={ROUTES.REGISTRATION}>
+          Registration
+        </Link>
       </div>
     </div>
   );

@@ -4,15 +4,31 @@
   gap: 5px;
   margin-bottom: 20px;
 
+  &_row {
+    flex-direction: row;
+  }
+
   &:last-of-type {
     margin-bottom: 0;
   }
 
   &__label {
+    flex: 1 0;
+    max-width: 150px;
     color: var(--secondary-color);
+
+    &_centered {
+      align-self: center;
+    }
 
     &_required {
       color: $red;
     }
+  }
+
+  &__value {
+    flex: 1 1;
+    width: 100%;
+    align-self: center;
   }
 }

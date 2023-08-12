@@ -8,12 +8,15 @@ import { Option } from "models/common";
 
 import options from "@common/dropdown_Test.json";
 import { Button, ButtonSizes, ButtonTypes, Variants } from "@components/Button";
+import { useToast } from "@hooks/useToast";
 import { useRegistrationMutation } from "@redux/auth/auth.api";
 import { ROUTES } from "@routes/config";
 import { REGEX_EMAIL, REGEX_PASSWORD } from "@constants/common";
 
 export const RegistrationPage = () => {
   const navigate = useNavigate();
+  const { createErrorToast, createSuccessToast } = useToast();
+
   const [registerUser] = useRegistrationMutation();
   const [transformedOptions, setTransformedOptions] = useState<Option[]>([] as Option[]);
 
@@ -32,10 +35,10 @@ export const RegistrationPage = () => {
   const onSubmit = async (data: RegistrationForm) => {
     try {
       await registerUser({ ...data, country: data.country?.value }).unwrap();
-      //TODO: toast
+      createSuccessToast("Successful registration");
       navigate(ROUTES.LOGIN);
     } catch (e) {
-      console.error(e);
+      createErrorToast();
     }
   };
 

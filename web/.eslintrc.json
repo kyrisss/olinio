@@ -23,7 +23,7 @@
           ["^@mock/*", "^@tools/*", "^@common/*", "^@components/*", "^@hooks/*", "^@redux/*", "^@routes/*", "^@views/*", "^@store/*", "^@constants/*", "^@models/*", "^@styles/*"],
           ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
           ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
-          ["^.+\\.?(scss)$"]
+          ["^.+\\.?(scss|css)$"]
         ]
       }
     ],
@@ -83,7 +83,7 @@
           ["@store", "./src/store"],
           ["@views", "./src/views"],
           ["@constants", "./src/constants"],
-          ["@models", "./src/models"],
+          ["@models", "./models"],
           ["@styles", "./styles"]
         ],
         "extensions": [".ts", ".tsx", ".js", ".jsx", ".json"]

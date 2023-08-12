@@ -17,3 +17,4 @@ export interface RegistrationForm extends Omit<User, "_id" | "country"> {
   country: Option;
 }
 export type LoginForm = Pick<User, "username" | "password">;
+export type UpdateUserForm = Omit<RegistrationForm, "username" | "password">;
